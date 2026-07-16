@@ -9,8 +9,8 @@ fn main() {
             if word == String::from(\"\\\"aa\") + \"a\\\";\" {
                 recursed_data.push('\"');
                 for char in data.chars() {
-                    if (char == '\"') | (char == 0x5c as char)  {
-                        recursed_data.push(0x5c as char);
+                    if (char == '\"') | (char == '\\\\')  {
+                        recursed_data.push('\\\\');
                     }
                     recursed_data.push(char);
                 }
@@ -31,8 +31,8 @@ fn main() {
             if word == String::from("\"aa") + "a\";" {
                 recursed_data.push('"');
                 for char in data.chars() {
-                    if (char == '"') | (char == 0x5c as char)  {
-                        recursed_data.push(0x5c as char);
+                    if (char == '"') | (char == '\\')  {
+                        recursed_data.push('\\');
                     }
                     recursed_data.push(char);
                 }
